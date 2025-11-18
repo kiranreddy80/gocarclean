@@ -18,10 +18,16 @@ const Header = () => {
       <div className="w-full px-4 py-3">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <span className="text-2xl">🚗</span>
-            <span className="text-xl font-bold">Go Car Clean</span>
-          </div>
+          <div className="flex items-center">
+  <img
+  src="/logo.jpg"
+  alt="Go Car Clean"
+  className="w-20 h-18 object-cover rounded-md
+             border-2 border-secondary shadow-[0_0_15px_#DB8820]"
+/>
+
+</div>
+
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
