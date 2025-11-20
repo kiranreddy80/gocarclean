@@ -1,5 +1,13 @@
 // src/components/Services.jsx
 import React, { useState } from 'react';
+import foamwash from '/public/foamwash.avif';
+import Touchless from '/public/touchless.webp';
+import Interior from '/public/interior.webp';
+import Shampoo from '/public/shampoo.webp';
+import Repair from '/public/repair.webp';
+import Express from '/public/express.webp';
+import ACService from '/public/ac&ventilation.webp';
+import DiamondDetailing from '/public/diamond1.webp';
 
 const Services = () => {
   const [activeService, setActiveService] = useState(null);
@@ -9,7 +17,8 @@ const Services = () => {
     { id: 'all', name: 'All Services', icon: '✨', count: 8 },
     { id: 'exterior', name: 'Exterior', icon: '🚗', count: 4 },
     { id: 'interior', name: 'Interior', icon: '🛋️', count: 2 },
-    { id: 'premium', name: 'Premium', icon: '⭐', count: 2 }
+    { id: 'premium', name: 'Premium', icon: '⭐', count: 2 },
+    { id: 'daily', name: 'Daily Service', icon: '📅', count: 3 }
   ];
 
   const services = [
@@ -26,7 +35,7 @@ const Services = () => {
       features: ["Rich Foam Application", "Tire & Wheel Cleaning", "Exterior Polish", "Windows Cleaning", "Underbody Rinse", "Spot-free Drying"],
       popular: true,
       badge: "MOST POPULAR",
-      image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&h=400&fit=crop"
+      image: foamwash
     },
     {
       id: 2,
@@ -41,7 +50,7 @@ const Services = () => {
       features: ["Laser-guided Cleaning", "High-pressure Wash", "Paint Protection", "Spot-free Rinse", "Ceramic Coating Ready"],
       popular: false,
       badge: "ADVANCED TECH",
-      image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500&h=400&fit=crop"
+      image: Touchless
     },
     {
       id: 3,
@@ -56,7 +65,7 @@ const Services = () => {
       features: ["Deep Vacuuming", "Fabric Shampoo", "Leather Conditioning", "Dashboard Polish", "AC Vent Cleaning", "Odor Elimination"],
       popular: true,
       badge: "BEST SELLER",
-      image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=500&h=400&fit=crop"
+      image: Interior
     },
     {
       id: 4,
@@ -71,7 +80,7 @@ const Services = () => {
       features: ["Paint Correction", "Ceramic Coating", "Engine Bay Clean", "Interior Detailing", "Glass Treatment", "1 Year Protection"],
       popular: false,
       badge: "PREMIUM",
-      image: "https://images.unsplash.com/photo-1542362567-b07e54358753?w=500&h=400&fit=crop"
+      image: DiamondDetailing
     },
     {
       id: 5,
@@ -86,7 +95,7 @@ const Services = () => {
       features: ["Stain Removal", "Fabric Protection", "Odor Neutralization", "Steam Cleaning", "Quick Drying", "Anti-bacterial Treatment"],
       popular: false,
       badge: "DEEP CLEAN",
-      image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&h=400&fit=crop"
+      image: Shampoo
     },
     {
       id: 6,
@@ -101,7 +110,7 @@ const Services = () => {
       features: ["Minor Scratch Repair", "Dent Removal", "Full Exterior Wash", "Interior Detailing", "Headlight Restoration", "Paint Touch-up"],
       popular: false,
       badge: "COMPLETE CARE",
-      image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=500&h=400&fit=crop"
+      image: Repair
     },
     {
       id: 7,
@@ -116,7 +125,7 @@ const Services = () => {
       features: ["Quick Foam Wash", "Tire Clean", "Basic Dry", "Window Wipe", "Door Jambs Clean"],
       popular: true,
       badge: "QUICK & EASY",
-      image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&h=400&fit=crop"
+      image: Express
     },
     {
       id: 8,
@@ -131,16 +140,128 @@ const Services = () => {
       features: ["AC Disinfection", "Vent Cleaning", "Filter Replacement", "Odor Removal", "Performance Check", "Air Quality Test"],
       popular: false,
       badge: "FRESH AIR",
-      image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=500&h=400&fit=crop"
+      image:  ACService
     }
   ];
 
+  const dailyServices = [
+    {
+      id: 9,
+      category: 'daily',
+      icon: '🟢',
+      title: "BASE PLAN",
+      subtitle: "Daily Essential Care",
+      description: "Perfect for everyday car owners who want their car to look fresh and shiny every day",
+      price: "₹599",
+      originalPrice: "",
+      time: "Daily Service",
+      features: [
+        "Daily Exterior Cleaning — Body, glass, mirrors & tyres",
+        "Monthly Twice Tyre & Mirror Polish — Keeps your car glossy & neat",
+        "Eco-Smart Wash — Uses less water, safe for your car",
+        "Monthly Interior Cleaning — Dashboard, mats & seats refreshed",
+        "Free Paper Mats — Keeps floors clean & tidy",
+        "Free Car Air Freshener",
+        "Monthly Service Reminder — So you never miss a clean day"
+      ],
+      pricing: [
+        { type: "Hatchback", price: "₹599" },
+        { type: "Sedan", price: "₹799" },
+        { type: "SUV", price: "₹999" }
+      ],
+      popular: true,
+      badge: "ESSENTIAL",
+      image: Express,
+      planType: "base"
+    },
+    {
+      id: 10,
+      category: 'daily',
+      icon: '🟡',
+      title: "INTERMEDIATE PLAN",
+      subtitle: "Balanced & Value-Packed",
+      description: "Best for families who want both daily care and extra deep cleaning for their car",
+      price: "₹799",
+      originalPrice: "",
+      time: "Daily Service",
+      features: [
+        "Daily Exterior Cleaning — Body, glass, mirrors & tyres",
+        "Weekly Tyre & Mirror Polish — Keeps your car looking shiny",
+        "Twice-a-Month Interior Deep Cleaning — Dashboard, seats, mats & doors",
+        "Eco-Smart Wash — Gentle cleaning with minimal water",
+        "Free Paper Mats — Keeps your car neat & clean",
+        "Free Car Freshener — Once every month",
+        "Priority Cleaning During Festivals — Guaranteed slot during busy days"
+      ],
+      pricing: [
+        { type: "Hatchback", price: "₹799" },
+        { type: "Sedan", price: "₹999" },
+        { type: "SUV", price: "₹1,199" }
+      ],
+      popular: false,
+      badge: "VALUE PACK",
+      image: Interior,
+      planType: "intermediate"
+    },
+    {
+      id: 11,
+      category: 'daily',
+      icon: '🔴',
+      title: "PREMIUM PLAN",
+      subtitle: "The Complete Luxury Experience",
+      description: "For those who want their car to always look brand-new and spotless",
+      price: "₹999",
+      originalPrice: "",
+      time: "Daily Service",
+      features: [
+        "Daily Full Cleaning — Inside and outside, every day",
+        "Weekly Tyre & Mirror Polish — Long-lasting shine and finish",
+        "Bi-Weekly Deep Detailing — With polish, vacuum & conditioning",
+        "Engine Bay Professional Cleaning — Moisture-controlled cleaning",
+        "Free Paper Mats & Air Freshener — Every month",
+        "Dedicated Cleaning Crew — Personalized service for your car",
+        "Photo Proof on GoCarClean App — Before & after cleaning snapshots"
+      ],
+      pricing: [
+        { type: "Hatchback", price: "₹999" },
+        { type: "Sedan", price: "₹1,299" },
+        { type: "SUV", price: "₹1,599" }
+      ],
+      popular: false,
+      badge: "LUXURY",
+      image: DiamondDetailing,
+      planType: "premium"
+    }
+  ];
+
+  const allServices = [...services, ...dailyServices];
+
   const filteredServices = selectedCategory === 'all' 
-    ? services 
+    ? allServices 
+    : selectedCategory === 'daily'
+    ? dailyServices
     : services.filter(service => service.category === selectedCategory);
 
   const toggleServiceDetails = (serviceId) => {
     setActiveService(activeService === serviceId ? null : serviceId);
+  };
+
+  const getPlanColor = (planType) => {
+    switch (planType) {
+      case 'base': return 'from-green-500 to-emerald-600';
+      case 'intermediate': return 'from-yellow-500 to-amber-600';
+      case 'premium': return 'from-red-500 to-pink-600';
+      default: return 'from-primary to-water';
+    }
+  };
+
+  const getPlanBorder = (planType) => {
+    switch (planType) {
+      case 'base': return 'border-green-400';
+      case 'intermediate': return 'border-yellow-400';
+      case 'premium': return 'border-red-400';
+      default: return 'border-secondary';
+    }
   };
 
   return (
@@ -198,7 +319,7 @@ const Services = () => {
               <div 
                 key={service.id}
                 className={`bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-2 ${
-                  service.popular ? 'border-secondary' : 'border-white hover:border-secondary'
+                  service.popular ? (service.planType ? getPlanBorder(service.planType) : 'border-secondary') : 'border-white hover:border-secondary'
                 } overflow-hidden group`}
               >
                 {/* Service Image */}
@@ -215,7 +336,9 @@ const Services = () => {
                     <div className="absolute top-4 left-4">
                       <span className={`px-3 py-1 rounded-full text-xs font-bold ${
                         service.popular 
-                          ? 'bg-secondary text-dark' 
+                          ? service.planType 
+                            ? `bg-gradient-to-r ${getPlanColor(service.planType)} text-white`
+                            : 'bg-secondary text-dark'
                           : 'bg-primary text-white'
                       }`}>
                         {service.badge}
@@ -226,7 +349,9 @@ const Services = () => {
                   {/* Price Tag */}
                   <div className="absolute top-4 right-4 text-right">
                     <div className="text-2xl font-bold text-white">{service.price}</div>
-                    <div className="text-sm text-white/80 line-through">{service.originalPrice}</div>
+                    {service.originalPrice && (
+                      <div className="text-sm text-white/80 line-through">{service.originalPrice}</div>
+                    )}
                   </div>
 
                   {/* Time Badge */}
@@ -240,20 +365,48 @@ const Services = () => {
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-center gap-3">
                       <span className="text-3xl">{service.icon}</span>
-                      <h3 className="text-xl font-bold text-gray-900">{service.title}</h3>
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-900">{service.title}</h3>
+                        {service.subtitle && (
+                          <p className="text-sm text-gray-600 mt-1">{service.subtitle}</p>
+                        )}
+                      </div>
                     </div>
                   </div>
 
                   <p className="text-gray-600 mb-4 leading-relaxed">{service.description}</p>
 
+                  {/* Pricing for Daily Services */}
+                  {service.pricing && (
+                    <div className="mb-4 p-3 bg-gray-50 rounded-xl">
+                      <div className="grid grid-cols-3 gap-2 text-center">
+                        {service.pricing.map((price, index) => (
+                          <div key={index} className="text-sm">
+                            <div className="font-semibold text-gray-700">{price.type}</div>
+                            <div className="font-bold text-primary">{price.price}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   {/* Features */}
-                  <div className="grid grid-cols-2 gap-2 mb-4">
-                    {service.features.slice(0, 4).map((feature, index) => (
+                  <div className="grid grid-cols-1 gap-2 mb-4">
+                    {service.features.slice(0, service.category === 'daily' ? 3 : 4).map((feature, index) => (
                       <div key={index} className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-secondary rounded-full"></div>
+                        <div className={`w-2 h-2 rounded-full ${
+                          service.planType 
+                            ? `bg-gradient-to-r ${getPlanColor(service.planType)}`
+                            : 'bg-secondary'
+                        }`}></div>
                         <span className="text-xs text-gray-600">{feature}</span>
                       </div>
                     ))}
+                    {service.features.length > (service.category === 'daily' ? 3 : 4) && (
+                      <div className="text-xs text-gray-500 text-center">
+                        +{service.features.length - (service.category === 'daily' ? 3 : 4)} more features
+                      </div>
+                    )}
                   </div>
 
                   {/* Action Buttons */}
@@ -272,8 +425,8 @@ const Services = () => {
                   {/* Expanded Details */}
                   {activeService === service.id && (
                     <div className="mt-4 p-4 bg-gray-50 rounded-xl animate-fade-in">
-                      <p className="text-gray-700 mb-3">{service.fullDescription}</p>
-                      <div className="grid grid-cols-2 gap-2">
+                      <p className="text-gray-700 mb-3">{service.fullDescription || service.description}</p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                         {service.features.map((feature, index) => (
                           <div key={index} className="flex items-center gap-2">
                             <span className="text-green-500 text-sm">✓</span>
@@ -281,6 +434,19 @@ const Services = () => {
                           </div>
                         ))}
                       </div>
+                      {service.pricing && (
+                        <div className="mt-4 p-3 bg-white rounded-lg border">
+                          <h4 className="font-bold text-gray-800 mb-2">Monthly Pricing:</h4>
+                          <div className="grid grid-cols-3 gap-4 text-center">
+                            {service.pricing.map((price, index) => (
+                              <div key={index} className="p-2 bg-primary/10 rounded-lg">
+                                <div className="font-semibold text-gray-700">{price.type}</div>
+                                <div className="font-bold text-primary text-lg">{price.price}</div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>

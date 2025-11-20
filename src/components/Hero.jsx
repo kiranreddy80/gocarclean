@@ -13,7 +13,7 @@ const Hero = () => {
   ];
 
   const stats = [
-    { number: '5,000+', label: 'Cars Cleaned', icon: '🚗' },
+    { number: '400+', label: 'Cars Cleaned', icon: '🚗' },
     { number: '4.9★', label: 'Customer Rating', icon: '⭐' },
     { number: '24/7', label: 'Service Available', icon: '⏰' },
     { number: '15 min', label: 'Quick Response', icon: '⚡' }
@@ -45,7 +45,7 @@ const Hero = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 Professional 
                 <span className="text-transparent bg-gradient-to-r from-secondary to-accent bg-clip-text"> Car Care </span>
-                At Your Doorstep
+                At Your Doorstep 
               </h1>
 
               {/* Subheading */}
@@ -96,17 +96,30 @@ const Hero = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <button className="flex-1 bg-gradient-to-r from-secondary to-accent hover:from-accent hover:to-secondary text-dark font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
-                    <span>🚗</span>
-                    Book Instant Service
-                    <span>⚡</span>
-                  </button>
-                  <button className="flex items-center justify-center gap-2 px-6 py-4 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold rounded-xl transition-all duration-300">
-                    <span>📞</span>
-                    Call: +91 98765 43210
-                  </button>
-                </div>
+              
+<div className="flex flex-col sm:flex-row gap-3">
+  <button 
+    onClick={() => {
+      localStorage.setItem('selectedServiceTab', 'all');
+      window.location.href = '/services';
+    }}
+    className="flex-1 bg-gradient-to-r from-secondary to-accent hover:from-accent hover:to-secondary text-dark font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+  >
+    <span>🚗</span>
+    Book Instant Service
+    <span>⚡</span>
+  </button>
+  <button 
+    onClick={() => {
+      localStorage.setItem('selectedServiceTab', 'daily');
+      window.location.href = '/services';
+    }}
+    className="flex items-center justify-center gap-2 px-6 py-4 bg-primary hover:from-emerald-600 hover:to-green-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+  >
+    <span>📅</span>
+    Daily Service Plans
+  </button>
+</div>
 
                 {/* Quick Info */}
                 <div className="flex items-center justify-center gap-6 text-sm text-gray-500">
@@ -153,7 +166,7 @@ const Hero = () => {
                 {/* Main Car Image */}
                 <div className="relative z-10">
                   <img 
-                    src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=600&h=700&fit=crop" 
+                    src="/foamwash.avif" 
                     alt="Professional Car Cleaning"
                     className="w-full h-[600px] object-cover rounded-3xl shadow-2xl"
                   />
@@ -177,7 +190,7 @@ const Hero = () => {
                         <span className="text-2xl">🚗</span>
                       </div>
                       <div>
-                        <div className="font-bold text-gray-900">5,000+</div>
+                        <div className="font-bold text-gray-900">400+</div>
                         <div className="text-sm text-gray-500">Cars Cleaned</div>
                       </div>
                     </div>

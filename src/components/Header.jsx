@@ -14,17 +14,25 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-primary text-white sticky top-0 z-50 shadow-lg w-full">
+    <header className="bg-black text-white sticky top-0 z-50 shadow-lg w-full">
       <div className="w-full px-4 py-3">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           {/* Logo */}
           <div className="flex items-center">
+ <div className="flex items-center gap-3">
   <img
-  src="/logo.jpg"
-  alt="Go Car Clean"
-  className="w-20 h-18 object-cover rounded-md
-             border-2 border-secondary shadow-[0_0_15px_#DB8820]"
-/>
+    src="/logo.jpg"
+    alt="Go Car Clean"
+    className="w-24 h-24 object-cover rounded-md"
+  />
+
+  {/* Text beside Logo */}
+  <h1 className="text-2xl font-bold flex items-center">
+    <span className="text-white">Go Car </span>
+    <span className="text-secondary ml-2"> Clean</span>
+  </h1>
+</div>
+
 
 </div>
 

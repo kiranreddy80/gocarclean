@@ -142,12 +142,16 @@ const Contact = () => {
               <h3 className="text-xl font-bold text-white mb-4">🕒 Business Hours</h3>
               <div className="space-y-3">
                 <div className="flex justify-between text-white/80">
-                  <span>Monday - Friday</span>
-                  <span className="font-semibold">7:00 AM - 10:00 PM</span>
+                  <span> Monday</span>
+                  <span className="font-semibold">Week-Off</span>
+                </div>
+                <div className="flex justify-between text-white/80">
+                  <span> Tuesday - Friday</span>
+                  <span className="font-semibold">4:00 AM - 10:00 PM</span>
                 </div>
                 <div className="flex justify-between text-white/80">
                   <span>Saturday - Sunday</span>
-                  <span className="font-semibold">8:00 AM - 11:00 PM</span>
+                  <span className="font-semibold">4:00 AM - 11:00 PM</span>
                 </div>
                 <div className="flex justify-between text-white/80">
                   <span>Emergency Service</span>
@@ -275,7 +279,7 @@ const Contact = () => {
                   </span>
                 ) : (
                   <span className="flex items-center justify-center gap-2">
-                    🚗 Send Message
+                     Send Message
                     <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                   </span>
                 )}

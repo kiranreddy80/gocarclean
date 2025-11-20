@@ -11,6 +11,7 @@ import ServiceGallery from './components/ServiceGallery';
 import LegalSections from './components/Terms'; // Add this import
 
 import Testimonials from './components/Testimonials';
+import DownloadApp from './components/Download';
 import Footer from './components/Footer';
 import Contact from './components/Contact'; 
 
@@ -21,7 +22,7 @@ function App() {
       <Hero />
       <Services />
       <Categories />
-     
+     <DownloadApp />
     
       <Testimonials />
       <Contact />

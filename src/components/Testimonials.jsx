@@ -41,7 +41,7 @@ const Testimonials = () => {
       rating: 5,
       comment: "Being a bike enthusiast, I'm very particular about my Classic 350's maintenance. The team treated my bike with so much care! They cleaned the chain, polished the chrome, and even dressed the tires. My bike has never looked better!",
       image: "👨‍🔧",
-      location: "Secunderabad",
+      location: "Sanath Nagar,Hyderabad",
       date: "5 days ago",
       beforeAfter: {
         before: "Chain grease, road grime buildup",
@@ -52,7 +52,7 @@ const Testimonials = () => {
 
   const stats = [
     { number: "4.9/5", label: "Average Rating", icon: "⭐" },
-    { number: "2,500+", label: "Happy Customers", icon: "😊" },
+    { number: "400+", label: "Happy Customers", icon: "😊" },
     { number: "98%", label: "Satisfaction Rate", icon: "🎯" },
     { number: "15 min", label: "Avg Response Time", icon: "⚡" }
   ];

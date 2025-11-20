@@ -1,5 +1,6 @@
 // src/components/ServiceGallery.jsx
 import React, { useState } from 'react';
+import foamwash from '/public/foamwash.avif';
 
 const ServiceGallery = () => {
   const [selectedService, setSelectedService] = useState('all');
@@ -19,7 +20,7 @@ const ServiceGallery = () => {
     {
       id: 1,
       category: 'foam',
-      image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&h=400&fit=crop",
+      image: 'foamwash',
       title: "Premium Foam Wash",
       description: "Deep cleaning with rich foam that lifts dirt without scratching",
       features: ["Rich Foam Application", "Tire Cleaning", "Exterior Polish", "Rinse & Dry"],
