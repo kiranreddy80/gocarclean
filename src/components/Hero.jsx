@@ -3,13 +3,20 @@ import React, { useState } from 'react';
 
 const Hero = () => {
   const [location, setLocation] = useState('');
-  const [service, setService] = useState('');
+  const [instantService, setInstantService] = useState('');
+  const [dailyService, setDailyService] = useState('');
 
   const popularServices = [
     { name: 'Foam Wash', time: '45 min', price: '₹499', icon: '🧼' },
     { name: 'Touchless Wash', time: '30 min', price: '₹599', icon: '💦' },
     { name: 'Interior Cleaning', time: '60 min', price: '₹799', icon: '🚗' },
     { name: 'Full Detailing', time: '3 hours', price: '₹1999', icon: '✨' }
+  ];
+
+  const dailyServicePlans = [
+    { value: 'base-plan', label: 'Base Plan - ₹599/month', price: '₹599' },
+    { value: 'intermediate-plan', label: 'Intermediate Plan - ₹799/month', price: '₹799' },
+    { value: 'premium-plan', label: 'Premium Plan - ₹999/month', price: '₹999' }
   ];
 
   const stats = [
@@ -38,7 +45,7 @@ const Hero = () => {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 bg-secondary/20 text-secondary px-4 py-2 rounded-full font-semibold">
                 <span>🚀</span>
-                India's #1 Doorstep Car Cleaning Service
+                India's #1 Doorstep Car Cleaning Service 
               </div>
 
               {/* Main Heading */}
@@ -56,37 +63,57 @@ const Hero = () => {
 
               {/* Search Box */}
               <div className="bg-white rounded-2xl shadow-2xl p-6 space-y-4 border border-gray-100">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Location Input */}
+                {/* Location Input */}
+                <div className="relative">
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    📍 Your Location
+                  </label>
                   <div className="relative">
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      📍 Your Location
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="text"
-                        value={location}
-                        onChange={(e) => setLocation(e.target.value)}
-                        placeholder="Enter your address or area"
-                        className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-300 bg-gray-50"
-                      />
-                      <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-                        📍
-                      </div>
+                    <input
+                      type="text"
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                      placeholder="Enter your address or area"
+                      className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-300 bg-gray-50"
+                    />
+                    <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                      📍
                     </div>
                   </div>
+                </div>
 
-                  {/* Service Selection */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+
+                  {/* Daily Service Selection */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      🚗 Select Service
+                      📅 Daily Service Plans
                     </label>
                     <select
-                      value={service}
-                      onChange={(e) => setService(e.target.value)}
+                      value={dailyService}
+                      onChange={(e) => setDailyService(e.target.value)}
                       className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-300 bg-gray-50 appearance-none"
                     >
-                      <option value="">Choose a service</option>
+                      <option value="">Choose daily plan</option>
+                      {dailyServicePlans.map((plan) => (
+                        <option key={plan.value} value={plan.value}>
+                          {plan.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                    {/* Instant Service Selection */}
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      ⚡ Instant Services
+                    </label>
+                    <select
+                      value={instantService}
+                      onChange={(e) => setInstantService(e.target.value)}
+                      className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-300 bg-gray-50 appearance-none"
+                    >
+                      <option value="">Choose instant service</option>
                       <option value="foam-wash">Foam Wash - ₹499</option>
                       <option value="touchless-wash">Touchless Wash - ₹599</option>
                       <option value="interior-cleaning">Interior Cleaning - ₹799</option>
@@ -96,30 +123,46 @@ const Hero = () => {
                 </div>
 
                 {/* Action Buttons */}
-              
-<div className="flex flex-col sm:flex-row gap-3">
-  <button 
+                <div className="flex flex-col sm:flex-row gap-3">
+
+  {/* INSTANT SERVICE BUTTON */}
+  
+
+  {/* DAILY SERVICE BUTTON */}
+  <button
     onClick={() => {
-      localStorage.setItem('selectedServiceTab', 'all');
-      window.location.href = '/services';
+      localStorage.setItem("selectedServiceTab", "daily");
+      window.dispatchEvent(new Event("serviceTabChanged"));
+      document.querySelector("#services").scrollIntoView({ behavior: "smooth" });
     }}
-    className="flex-1 bg-gradient-to-r from-secondary to-accent hover:from-accent hover:to-secondary text-dark font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+    className="flex-1 flex items-center justify-center gap-2 px-6 py-4 
+               bg-gradient-to-r from-primary to-emerald-600 
+               hover:from-emerald-600 hover:to-green-500 text-white 
+               font-bold rounded-xl transition-all duration-300 
+               transform hover:scale-105 shadow-lg hover:shadow-xl"
+  >
+    <span>📅</span>
+    Daily Services
+  </button>
+  <button
+    onClick={() => {
+      localStorage.setItem("selectedServiceTab", "all");
+      window.dispatchEvent(new Event("serviceTabChanged"));
+      document.querySelector("#services").scrollIntoView({ behavior: "smooth" });
+    }}
+    className="flex-1 bg-gradient-to-r from-secondary to-accent 
+               hover:from-accent hover:to-secondary text-dark font-bold 
+               py-4 px-8 rounded-xl transition-all duration-300 
+               transform hover:scale-105 shadow-lg hover:shadow-xl 
+               flex items-center justify-center gap-2"
   >
     <span>🚗</span>
     Book Instant Service
     <span>⚡</span>
   </button>
-  <button 
-    onClick={() => {
-      localStorage.setItem('selectedServiceTab', 'daily');
-      window.location.href = '/services';
-    }}
-    className="flex items-center justify-center gap-2 px-6 py-4 bg-primary hover:from-emerald-600 hover:to-green-500 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-  >
-    <span>📅</span>
-    Daily Service Plans
-  </button>
+
 </div>
+
 
                 {/* Quick Info */}
                 <div className="flex items-center justify-center gap-6 text-sm text-gray-500">
@@ -165,12 +208,11 @@ const Hero = () => {
               <div className="relative">
                 {/* Main Car Image */}
                 <div className="relative z-10">
-                  <img 
-                    src="/foamwash.avif" 
-                    alt="Professional Car Cleaning"
-                    className="w-full h-[600px] object-cover rounded-3xl shadow-2xl"
-                  />
-                  
+                 <img
+  src="/carwash.png"
+  className="w-full h-[400px] object-contain rounded-3xl shadow-2xl bg-black"
+/>
+
                   {/* Floating Elements */}
                   <div className="absolute -top-4 -right-4 bg-white rounded-2xl p-4 shadow-2xl animate-float">
                     <div className="flex items-center gap-3">
@@ -218,9 +260,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      
     </section>
   );
 };

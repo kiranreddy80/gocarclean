@@ -15,15 +15,15 @@ const Contact = () => {
     {
       icon: '📞',
       title: 'Call Us',
-      details: '+91 98765 43210',
+      details: '+91 8074885168',
       description: 'Available 24/7 for emergency services',
-      action: 'tel:+919876543210',
+      action: 'tel:+918074885168',
       buttonText: 'Call Now'
     },
     {
       icon: '💬',
       title: 'WhatsApp',
-      details: '+91 98765 43210',
+      details: '+91 8074885168',
       description: 'Quick responses within minutes',
       action: 'https://wa.me/919876543210',
       buttonText: 'Start Chat'
@@ -301,13 +301,13 @@ const Contact = () => {
             </div>
             <div className="flex gap-4">
               <a
-                href="tel:+91987654330"
+                href="tel:+918074885168"
                 className="bg-dark text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-800 transition-all duration-300"
               >
                 📞 Call Emergency
               </a>
               <a
-                href="https://wa.me/919876523210"
+                href="https://wa.me/918074885168"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white text-dark px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300"

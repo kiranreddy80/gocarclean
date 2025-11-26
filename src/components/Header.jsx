@@ -6,8 +6,8 @@ const Header = () => {
 
   const navItems = [
     { name: 'Home', href: '#home' },
-    { name: 'Categories', href: '#categories' },
     { name: 'Services', href: '#services' },
+    { name: 'Categories', href: '#categories' },
     { name: 'Blog', href: '#blog' },
     { name: 'Contact', href: '#contact' },
     { name: 'Legal', href: '#legal' },
@@ -17,37 +17,41 @@ const Header = () => {
     <header className="bg-black text-white sticky top-0 z-50 shadow-lg w-full">
       <div className="w-full px-4 py-3">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
-          {/* Logo */}
-          <div className="flex items-center">
+         <div className="flex items-center">
  <div className="flex items-center gap-3">
   <img
     src="/logo.jpg"
     alt="Go Car Clean"
     className="w-24 h-24 object-cover rounded-md"
-  />
-
+  /> 
+  
+     
   {/* Text beside Logo */}
   <h1 className="text-2xl font-bold flex items-center">
-    <span className="text-white">Go Car </span>
-    <span className="text-secondary ml-2"> Clean</span>
+    <span className="text-white">GoCar<span className="text-secondary">Clean</span></span>
+   
   </h1>
 </div>
 
 
 </div>
-
-
-          {/* Desktop Navigation */}
+{/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="hover:text-secondary transition-colors duration-300 font-medium"
-              >
-                {item.name}
-              </a>
-            ))}
+           {navItems.map((item) => (
+  <button
+    key={item.name}
+    onClick={() => {
+      const section = document.querySelector(item.href);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }}
+    className="hover:text-secondary transition-colors duration-300 font-medium"
+  >
+    {item.name}
+  </button>
+))}
+
           </nav>
 
           {/* Mobile Menu Button */}

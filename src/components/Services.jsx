@@ -1,5 +1,6 @@
 // src/components/Services.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 import foamwash from '/public/foamwash.avif';
 import Touchless from '/public/touchless.webp';
 import Interior from '/public/interior.webp';
@@ -14,12 +15,36 @@ const Services = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const serviceCategories = [
-    { id: 'all', name: 'All Services', icon: '✨', count: 8 },
+    { id: 'all', name: 'Instant Services', icon: '✨', count: 8 },
+     { id: 'daily', name: 'Daily Service', icon: '📅', count: 3 },
     { id: 'exterior', name: 'Exterior', icon: '🚗', count: 4 },
     { id: 'interior', name: 'Interior', icon: '🛋️', count: 2 },
-    { id: 'premium', name: 'Premium', icon: '⭐', count: 2 },
-    { id: 'daily', name: 'Daily Service', icon: '📅', count: 3 }
+    { id: 'premium', name: 'Premium', icon: '⭐',  count:  2 },
+   
   ];
+
+useEffect(() => {
+  const applyTab = () => {
+    const tab = localStorage.getItem("selectedServiceTab");
+    if (tab) setSelectedCategory(tab);
+  };
+
+  // Run once on load
+  applyTab();
+
+  // Listen for changes triggered by Hero
+  window.addEventListener("serviceTabChanged", applyTab);
+
+  return () => {
+    window.removeEventListener("serviceTabChanged", applyTab);
+  };
+}, []);
+
+
+
+
+  // run once on first load also
+ 
 
   const services = [
     {
@@ -69,7 +94,7 @@ const Services = () => {
     },
     {
       id: 4,
-      category: 'premium',
+      category: 'premium',  
       icon: '✨',
       title: "Diamond Detailing",
       description: "Showroom-quality detailing with paint correction, ceramic coating, and interior rejuvenation",
@@ -234,13 +259,16 @@ const Services = () => {
     }
   ];
 
-  const allServices = [...services, ...dailyServices];
+ const allServices = services;
 
-  const filteredServices = selectedCategory === 'all' 
-    ? allServices 
-    : selectedCategory === 'daily'
-    ? dailyServices
-    : services.filter(service => service.category === selectedCategory);
+
+const filteredServices =
+  selectedCategory === "all"
+    ? services // only instant services
+    : selectedCategory === "daily"
+    ? dailyServices // only daily plans
+    : services.filter((service) => service.category === selectedCategory);
+
 
   const toggleServiceDetails = (serviceId) => {
     setActiveService(activeService === serviceId ? null : serviceId);
@@ -474,7 +502,7 @@ const Services = () => {
                     🗣️ Get Free Consultation
                   </button>
                   <button className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold py-4 px-12 rounded-xl transition-all duration-300">
-                    📞 Call: +91 98765 43210
+                    📞 Call: +91 8074885168
                   </button>
                 </div>
               </div>

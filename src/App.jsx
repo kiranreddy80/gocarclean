@@ -9,7 +9,7 @@ import Services from './components/Services';
 import Categories from './components/Categories';
 import ServiceGallery from './components/ServiceGallery';
 import LegalSections from './components/Terms'; // Add this import
-
+import ScrollCar from "./components/ScrollCar";
 import Testimonials from './components/Testimonials';
 import DownloadApp from './components/Download';
 import Footer from './components/Footer';
@@ -17,17 +17,17 @@ import Contact from './components/Contact';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50 w-full overflow-x-hidden">
+    <div className="min-h-screen bg-gray-50">
       <Header />
       <Hero />
       <Services />
       <Categories />
      <DownloadApp />
-    
+    <ScrollCar />
       <Testimonials />
       <Contact />
-      <LegalSections /> {/* Add this line */}
-      <Footer />
+      <LegalSections /> 
+      <Footer />  
     </div>
   );
 }
