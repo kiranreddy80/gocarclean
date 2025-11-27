@@ -41,6 +41,8 @@ useEffect(() => {
 }, []);
 
 
+const [interactive, setInteractive] = useState(false);
+
 
 
   // run once on first load also
@@ -492,20 +494,56 @@ const filteredServices =
                 <div className="absolute bottom-4 right-10 text-6xl">💦</div>
               </div>
               
-              <div className="relative z-10">
-                <h3 className="text-3xl font-bold mb-4">Not Sure Which Service You Need?</h3>
-                <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-                  Get a free consultation from our car care experts. We'll recommend the perfect service for your vehicle.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="bg-secondary hover:bg-accent text-dark font-bold py-4 px-12 rounded-xl transition-all duration-300 transform hover:scale-105 text-lg shadow-2xl">
-                    🗣️ Get Free Consultation
-                  </button>
-                  <button className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold py-4 px-12 rounded-xl transition-all duration-300">
-                    📞 Call: +91 8074885168
-                  </button>
-                </div>
-              </div>
+              {/* RIGHT SIDE MAP WITH SCROLL-INSIDE-MAP ONLY */}
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+  {/* Left content */}
+  <div className="relative z-10 flex flex-col justify-center text-center lg:text-left">
+    <h3 className="text-3xl font-bold mb-4">Not Sure Which Service You Need?</h3>
+    <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto lg:mx-0">
+      Get a free consultation from our car care experts. We'll recommend the perfect service for your vehicle.
+    </p>
+
+    <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+      <button className="bg-secondary hover:bg-accent text-dark font-bold py-4 px-12 rounded-xl transition-transform duration-300 transform hover:scale-105 text-lg shadow-2xl">
+        🗣️ Get Free Consultation
+      </button>
+      <button className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold py-4 px-12 rounded-xl transition-all duration-300">
+        📞 Call: +91 8074885168
+      </button>
+    </div>
+  </div>
+
+  {/* Right content — Map with scroll only inside */}
+  <div
+    className="relative rounded-xl overflow-hidden border border-gray-300 shadow-lg h-64 lg:h-80"
+    onMouseEnter={() => setInteractive(true)}
+    onMouseLeave={() => setInteractive(false)}
+    onClick={() => setInteractive(prev => !prev)}
+  >
+    {/* Overlay hint */}
+    {!interactive && (
+      <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/20 text-white text-sm select-none">
+        <div className="px-3 py-2 rounded-md bg-black/40 backdrop-blur-sm">
+          Scroll or tap the map to interact
+        </div>
+      </div>
+    )}
+
+    {/* Map iframe */}
+    <iframe
+      src="https://www.google.com/maps?q=17.45894,78.4240649&z=17&output=embed"
+      width="100%"
+      height="100%"
+      style={{ border: 0, pointerEvents: interactive ? 'auto' : 'none' }}
+      loading="lazy"
+      allowFullScreen
+      className="w-full h-full"
+    />
+  </div>
+</div>
+
+
+
             </div>
           </div>
         </div>

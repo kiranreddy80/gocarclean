@@ -45,7 +45,7 @@ const Footer = () => {
             {/* Map */}
             <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-700 h-48">
              <iframe
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.90!2d78.423!3d17.4603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcc93fed9f8e04b%3A0x10d01bc740f5befd!2s1/C%2C%20Avanthi%20Nagar%2C%20Panduranga%20Nagar%2C%20Erragadda%2C%20Hyderabad%20500018!5e0!3m2!1sen!2sin!4v"
+src="https://www.google.com/maps?q=17.45894,78.4240649&z=17&output=embed"
   width="100%"
   height="100%"
   style={{ border: 0 }}

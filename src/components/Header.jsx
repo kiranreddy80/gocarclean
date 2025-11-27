@@ -10,7 +10,7 @@ const Header = () => {
     { name: 'Categories', href: '#categories' },
     { name: 'Blog', href: '#blog' },
     { name: 'Contact', href: '#contact' },
-    { name: 'Legal', href: '#legal' },
+    
   ];
 
   return (
@@ -20,9 +20,9 @@ const Header = () => {
          <div className="flex items-center">
  <div className="flex items-center gap-3">
   <img
-    src="/logo.jpg"
+    src="/logogocar.jpg"
     alt="Go Car Clean"
-    className="w-24 h-24 object-cover rounded-md"
+    className="w-24 h-[100px] object-cover rounded-md"
   /> 
   
      
